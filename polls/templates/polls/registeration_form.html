@@ -1,0 +1,31 @@
+
+ {% extends 'polls/base.html' %}
+ {% block title%}
+ <title>Register</title>
+ {% endblock%}
+ {% block body%}
+
+      <!--register modal-->
+      <div id="registeration-form">
+            <div>
+                  <div class="loginmodal-container">
+                      <h1>Register a New Account</h1><br>
+                    <form method="POST" class="" role="form" {% url 'polls:register'%}>
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      
+                      <input type="submit" name="Register" class="login loginmodal-submit" value="Register">
+                    </form>
+                  </div>
+              </div>
+            </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

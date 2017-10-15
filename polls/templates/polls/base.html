@@ -1,0 +1,153 @@
+<html lang="en">
+
+<head>
+    {% block title%}
+    <title>Portfolio</title>
+    {% endblock%} {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two|News+Cycle" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/login.css' %}" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myCarousel").carousel({
+                interval: 3000
+            });
+        });
+    </script>
+
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>                        
+                        </button>
+                <a class="navbar-brand" href="#" style="font-family: 'Lobster Two', serif;font-size: 50px;">Pic Box</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        {% include "polls/carousel.html" %}
+    </div>
+
+    <!--    <div class="jumbotron" >
+        <div class="container text-center" style="font-family: 'Lobster Two', serif;font-size: 120px;">
+            <h1>The Pic Box</h1>
+            <p>Create Your Online Portfolio</p>
+        </div>
+    </div> -->
+
+    <!--login modal-->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h1>Login to Your Account</h1><br>
+                </div>
+                <form>
+                    <input type="text" name="user" placeholder="Username">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                </form>
+
+                <div class="login-help">
+                    <a href="#" data-toggle="modal" data-target="#register-modal">Register</a> - <a href="#" data-toggle="modal"
+                        data-target="#forgotPwdModal">Forgot Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--register modal-->
+    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+        style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h1>Register a New Account</h1><br>
+                    </div>
+                <form>
+                    <input type="email" name="user" placeholder="Email">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="password" name="pass" placeholder="Confirm Password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--forgot password modal-->
+    <div id="forgotPwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="text-center">What's My Password?</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="text-center">
+
+                                    <p>If you have forgotten your password you can reset it here.</p>
+                                    <div class="panel-body">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="email">
+                                            </div>
+                                            <input class="btn btn-lg btn-primary btn-block" value="Send My Password" type="submit">
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block body%} {% endblock %}
+
+    <footer class="container-fluid text-center" style="font-family: 'Tangerine', serif;font-size: x-large;">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+            Ipsum.</p>
+    </footer>
+</body>
+
+</html>

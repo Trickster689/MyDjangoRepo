@@ -1,9 +1,61 @@
-{% if latest_question_list %}
-<ul>
-{% for question in latest_question_list %}
-<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-{% endfor %}
-</ul>
-{% else %}
-<p>No polls are available.</p>
-{% endif %}
+{% extends 'polls/base.html' %} 
+{% load static %}
+{% block title%}
+<title>Home</title>
+{% endblock%}
+{% block body%}
+    
+
+    {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+    <div class="well"><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></div>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
+
+
+    <div class="container-fluid bg-3 text-center">    
+        <h3>Some of my Work</h3><br>
+        <div class="row">
+          <div class="col-sm-3">
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image1.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-3"> 
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image2.jpeg' %}"class="img-responsive" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-3"> 
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image3.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-3">
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image4.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image1.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-3"> 
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image2.jpeg' %}"class="img-responsive" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-3"> 
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image3.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-3">
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+            <img src="{% static 'polls/images/image4.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+          </div>
+        </div>
+      </div><br>
+
+{% endblock %}
